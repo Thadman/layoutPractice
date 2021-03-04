@@ -161,7 +161,9 @@ export default function FetchData() {
         </div>
       </div>
       <div className="title">
-        <h1>'20 - '21' SEASON AVERAGES</h1>
+        <h1 style={{ fontSize: "30px", marginTop: "35px" }}>
+          '20 - '21' SEASON AVERAGES
+        </h1>
       </div>
       <PlayerData stat={stats} />
       <div className="c">
