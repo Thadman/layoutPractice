@@ -84,7 +84,7 @@ html {
 .c {
   grid-column: 1/6;
   grid-row: 3/9;
-  border: 1px solid #616161;
+  /* border: 1px solid #616161; */
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -97,7 +97,7 @@ html {
 [class*="c-"] {
   flex: 0 0 30%;
   color: #fff;
-  border: 1px solid #616161;
+  /* border: 1px solid #616161; */
 }
 
 .c-1 {
