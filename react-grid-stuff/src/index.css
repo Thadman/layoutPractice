@@ -34,9 +34,9 @@ html {
   margin: 0 auto;
   display: grid;
   grid-gap: 5px;
-  height: 100vh;
+  /* height: 100vh; */
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 0.5fr);
   background-color: #212121;
 }
 
@@ -57,20 +57,35 @@ html {
 }
 
 [class*="b-"] {
-  flex: 0 0 20%;
-  border: 1px solid #616161;
+  flex: 0 0 18%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
+  margin-right: 10px;
+}
+
+[class*="b-"] button {
+  border: 1px solid #616161;
   border-radius: 20px;
+  padding: 3px;
+}
+
+.title {
+  grid-column: 1/6;
+  grid-row: 2/3;
+  color: #fff;
+  text-align: center;
+  border-top: 1px solid #616161;
+  display: flex;
+  justify-content: center;
 }
 
 .c {
   grid-column: 1/6;
-  grid-row: 2/9;
+  grid-row: 3/9;
   border: 1px solid #616161;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-flow: row-wrap;
@@ -80,9 +95,9 @@ html {
 }
 
 [class*="c-"] {
-  border: 1px solid #616161;
   flex: 0 0 30%;
   color: #fff;
+  border: 1px solid #616161;
 }
 
 .c-1 {
@@ -95,20 +110,35 @@ html {
 .c-1-1 {
   display: flex;
   justify-content: space-between;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #616161;
+  margin-top: 5px;
 }
 
-.d {
+.playerMargin {
+  padding-bottom: 20px;
+}
+
+.playerMargin h5 {
+  padding-bottom: 2px;
+}
+
+.d-1 {
   grid-column: 1/6;
-  grid-row: 9/15;
-  border: 1px solid #616161;
+  grid-row: 9/10;
+  border-top: 1px solid #616161;
   color: #fff;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  padding-top: 30px;
+  padding: 30px;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
-.d select {
+.d-1 select {
   color: rgb(41, 121, 255);
   padding: 15px;
   background-color: #212121;
@@ -118,17 +148,35 @@ html {
 .d-1-1 {
   margin-right: 10px;
   text-transform: uppercase;
+  font-size: 35px;
 }
 
-.d-1-2 {
+.e {
+  grid-column: 1/6;
+  grid-row: 10/15;
+  border: 1px solid #616161;
+  display: flex;
+  justify-content: center;
+  /* padding-top: 20px; */
+}
+
+.e-1 {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #616161;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
 }
 
 input {
   color: #fff;
   border: 1px solid #616161;
+  border-radius: 5px;
   padding: 5px;
   width: 100%;
-  height: 50px;
+  height: 66px;
   background-color: #212121;
   color: #fff;
 }
