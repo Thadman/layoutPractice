@@ -1,9 +1,7 @@
 import React from "react";
 
 export default function PlayerData(props) {
-  const { loading } = props;
-
-  // console.log(props);
+  console.log(props);
 
   return (
     <div className="b">
@@ -22,6 +20,15 @@ export default function PlayerData(props) {
           <button>Giannis Antetokounmpo</button>
         </div>
       </div>
+      {props.loading && (
+        <>
+          <div className="b-1-1">
+            <button>
+              {props.stat[0].first_name} {props.stat[0].last_name}
+            </button>
+          </div>
+        </>
+      )}
       <div className="b-4">
         <div className="b-1-1">
           <button>Clear All</button>

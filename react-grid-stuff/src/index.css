@@ -125,6 +125,11 @@ html {
   padding-bottom: 2px;
 }
 
+.newItem {
+  grid-column: 1/6;
+  grid-row: 9/9;
+}
+
 .d-1 {
   grid-column: 1/6;
   grid-row: 9/10;

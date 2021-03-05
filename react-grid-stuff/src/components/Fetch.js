@@ -5,12 +5,12 @@ import TeamData from "./TeamData";
 import TeamStats from "./TeamStats";
 // import Search from "./Search";
 import PlayerData from "./PlayerData";
-import { data } from "autoprefixer";
+// import GameStats from "./GameStats";
 
 export default function FetchData() {
   const [stats, setStats] = useState([]);
   const [query, setQuery] = useState("");
-  // const [id, setId] = useState("");
+  const [id, setId] = useState([]);
   const [playerStats, setPlayerStats] = useState([]);
   const [team, setTeam] = useState([]);
   const [teamStats, setTeamStats] = useState([]);
@@ -107,8 +107,10 @@ export default function FetchData() {
         );
         const data = await response.json();
         setStats(data.data);
-        // console.log(data);
+        setId(data.data[0].id);
         const id = data.data[0].id;
+        const passableId = data.data[0].id;
+
         // getting the season averages for the player that was queried
         const playerId = await fetch(
           `https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${id}`
@@ -149,6 +151,7 @@ export default function FetchData() {
         setPlayerPic(playerPicShow.url);
         // console.log(playerPic);
         setLoading(true);
+        return id;
       } catch (error) {
         console.log(error);
       }
@@ -178,7 +181,7 @@ export default function FetchData() {
           '20 - '21' SEASON AVERAGES
         </h1>
       </div>
-      <PlayerData stat={stats} />
+      <PlayerData stat={stats} loading={loading} />
       <div className="c">
         <div className="c-1">
           <>
@@ -465,6 +468,107 @@ export default function FetchData() {
             ))}
           </>
         </div>
+
+        {/* this will come up after a search */}
+        <div className="newItem">
+          {loading && (
+            <div className="c-3">
+              <>
+                <div className="playerMargin">
+                  <h5>
+                    {giannisTeam.first_name} {giannisTeam.last_name}
+                  </h5>
+                  <h6>
+                    Position: {giannisTeam.position} | Team:{" "}
+                    {giannisTeamName.abbreviation}
+                  </h6>
+                </div>
+              </>
+              <>
+                {giannis.map((item, index) => (
+                  <div className="c-1-1">
+                    <div>
+                      <h6>GP</h6>
+                      <h6>{item.games_played}</h6>
+                    </div>
+                    <div>
+                      <h6>AST</h6>
+                      <h6>{item.ast}</h6>
+                    </div>
+                    <div>
+                      <h6>BLK</h6>
+                      <h6>{item.blk}</h6>
+                    </div>
+                    <div>
+                      <h6>DREB</h6>
+                      <h6>{item.dreb}</h6>
+                    </div>
+                    <div>
+                      <h6>FGM3PT</h6>
+                      <h6>{item.fg3_pct}</h6>
+                    </div>
+                    <div>
+                      <h6>FG3A</h6>
+                      <h6>{item.fg3a}</h6>
+                    </div>
+                    <div>
+                      <h6>FG3M</h6>
+                      <h6>{item.fg3m}</h6>
+                    </div>
+                    <div>
+                      <h6>FGA</h6>
+                      <h6>{item.fga}</h6>
+                    </div>
+                    <div>
+                      <h6>FGM</h6>
+                      <h6>{item.fgm}</h6>
+                    </div>
+                    <div>
+                      <h6>FTPCT</h6>
+                      <h6>{item.ft_pct}</h6>
+                    </div>
+                    <div>
+                      <h6>FTA</h6>
+                      <h6>{item.fta}</h6>
+                    </div>
+                    <div>
+                      <h6>FTM</h6>
+                      <h6>{item.ftm}</h6>
+                    </div>
+                    <div>
+                      <h6>MIN</h6>
+                      <h6>{item.min}</h6>
+                    </div>
+                    <div>
+                      <h6>OREB</h6>
+                      <h6>{item.oreb}</h6>
+                    </div>
+                    <div>
+                      <h6>PTS</h6>
+                      <h6>{item.pts}</h6>
+                    </div>
+                    <div>
+                      <h6>REB</h6>
+                      <h6>{item.reb}</h6>
+                    </div>
+                    <div>
+                      <h6>STL</h6>
+                      <h6>{item.stl}</h6>
+                    </div>
+                    <div>
+                      <h6>TO</h6>
+                      <h6>{item.turnover}</h6>
+                    </div>
+                    <div>
+                      <h6>PF</h6>
+                      <h6>{item.pf}</h6>
+                    </div>
+                  </div>
+                ))}
+              </>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="d-1">
@@ -501,6 +605,7 @@ export default function FetchData() {
           <div>T</div>
         </div>
       </div>
+      {/* <GameStats id={id} /> */}
     </div>
   );
 }
