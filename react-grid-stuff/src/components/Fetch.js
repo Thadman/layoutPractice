@@ -23,7 +23,11 @@ export default function FetchData() {
   const [hardenTeam, setHardenTeam] = useState([]);
   const [stephTeam, setStephTeam] = useState([]);
   const [giannisTeam, setGiannisTeam] = useState([]);
+  const [hardenTeamName, setHardenTeamName] = useState([]);
+  const [stephTeamName, setStephTeamName] = useState([]);
+  const [giannisTeamName, setGiannisTeamName] = useState([]);
 
+  // this is the data for the players season averages
   const getHarden = async () => {
     const response = await fetch(
       `https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${192}`
@@ -33,15 +37,17 @@ export default function FetchData() {
     setHarden(harden.data);
   };
 
+  // this gets the players height, weight, name etc, and also the team information.
   const getNamesAndTeamOnEffectHarden = async () => {
     const response = await fetch(
       `https://www.balldontlie.io/api/v1/players/192`
     );
     const team = await response.json();
     setHardenTeam(team);
-    console.log(team.team.abbreviation);
+    setHardenTeamName(team.team);
   };
 
+  // stephs season averages
   const getSteph = async () => {
     const response = await fetch(
       `https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${115}`
@@ -51,12 +57,14 @@ export default function FetchData() {
     // console.log(steph);
   };
 
+  // his info and team info also
   const getNamesAndTeamOnEffectCurry = async () => {
     const response = await fetch(
       `https://www.balldontlie.io/api/v1/players/115`
     );
     const team = await response.json();
     setStephTeam(team);
+    setStephTeamName(team.team);
   };
 
   const getGiannis = async () => {
@@ -73,6 +81,7 @@ export default function FetchData() {
     );
     const team = await response.json();
     setGiannisTeam(team);
+    setGiannisTeamName(team.team);
   };
 
   useEffect(() => {
@@ -92,6 +101,7 @@ export default function FetchData() {
     event.preventDefault();
     const getData = async () => {
       try {
+        // getting the information of the queried player, gets back name, weight, and team also
         const response = await fetch(
           `https://www.balldontlie.io/api/v1/players?search=${query}`
         );
@@ -99,6 +109,7 @@ export default function FetchData() {
         setStats(data.data);
         // console.log(data);
         const id = data.data[0].id;
+        // getting the season averages for the player that was queried
         const playerId = await fetch(
           `https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${id}`
         );
@@ -108,6 +119,7 @@ export default function FetchData() {
         setLoading(true);
 
         const teamId = data.data[0].team.id;
+        // getting the team info, dont think i need this? can get the info from the first query?
         const playerTeam = await fetch(
           `https://www.balldontlie.io/api/v1/teams/${teamId}`
         );
@@ -115,6 +127,7 @@ export default function FetchData() {
         // console.log(teamStats);
         setTeam(teamStats.data);
 
+        // this is the data of the games that the team has played, with results etc.
         const teamGames = await fetch(
           `https://www.balldontlie.io/api/v1/games?seasons[]=2020&team_ids[]=${teamId}&per_page=50`
         );
@@ -173,7 +186,10 @@ export default function FetchData() {
               <h5>
                 {hardenTeam.first_name} {hardenTeam.last_name}
               </h5>
-              <h6 key={hardenTeam}>Position: {hardenTeam.position} | Team: </h6>
+              <h6 key={hardenTeam}>
+                Position: {hardenTeam.position} | Team:{" "}
+                {hardenTeamName.abbreviation}{" "}
+              </h6>
             </div>
           </>
           <>
@@ -265,7 +281,10 @@ export default function FetchData() {
               <h5>
                 {stephTeam.first_name} {stephTeam.last_name}
               </h5>
-              <h6>Position: {stephTeam.position} | Team: </h6>
+              <h6>
+                Position: {stephTeam.position} | Team:{" "}
+                {stephTeamName.abbreviation}{" "}
+              </h6>
             </div>
           </>
           <>
@@ -357,7 +376,10 @@ export default function FetchData() {
               <h5>
                 {giannisTeam.first_name} {giannisTeam.last_name}
               </h5>
-              <h6>Position: {giannisTeam.position} | Team: </h6>
+              <h6>
+                Position: {giannisTeam.position} | Team:{" "}
+                {giannisTeamName.abbreviation}
+              </h6>
             </div>
           </>
           <>
