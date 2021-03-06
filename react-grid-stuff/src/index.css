@@ -159,20 +159,30 @@ html {
 .e {
   grid-column: 1/6;
   grid-row: 10/15;
-  border: 1px solid #616161;
+  /* border: 1px solid #616161; */
   display: flex;
   justify-content: center;
-  /* padding-top: 20px; */
+  margin-bottom: 20px;
 }
 
 .e-1 {
   width: 90%;
   margin: 0 auto;
-  border: 1px solid #616161;
   color: #fff;
   display: flex;
   justify-content: space-around;
-  padding-top: 20px;
+}
+.top-table {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.table {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #616161;
 }
 
 input {

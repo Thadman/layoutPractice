@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function PlayerData(props) {
-  console.log(props);
+  // console.log(props);
 
   return (
     <div className="b">
@@ -24,7 +24,7 @@ export default function PlayerData(props) {
         <>
           <div className="b-1-1">
             <button>
-              {props.stat[0].first_name} {props.stat[0].last_name}
+              {props.stat.first_name} {props.stat.last_name}
             </button>
           </div>
         </>

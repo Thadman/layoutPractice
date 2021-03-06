@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import PlayerStats from "./PlayerStats";
-import TeamData from "./TeamData";
-import TeamStats from "./TeamStats";
 // import Search from "./Search";
 import PlayerData from "./PlayerData";
-// import GameStats from "./GameStats";
+import GameStats from "./GameStats";
 
 export default function FetchData() {
   const [stats, setStats] = useState([]);
@@ -26,6 +23,7 @@ export default function FetchData() {
   const [hardenTeamName, setHardenTeamName] = useState([]);
   const [stephTeamName, setStephTeamName] = useState([]);
   const [giannisTeamName, setGiannisTeamName] = useState([]);
+  const [tenGames, setTenGames] = useState([]);
 
   // this is the data for the players season averages
   const getHarden = async () => {
@@ -84,6 +82,15 @@ export default function FetchData() {
     setGiannisTeamName(team.team);
   };
 
+  const getTenGames = async () => {
+    const response = await fetch(
+      `https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=${115}&per_page=10`
+    );
+    const data = await response.json();
+    console.log(data.data);
+    setTenGames(data.data);
+  };
+
   useEffect(() => {
     getHarden();
     getSteph();
@@ -91,6 +98,7 @@ export default function FetchData() {
     getNamesAndTeamOnEffectHarden();
     getNamesAndTeamOnEffectCurry();
     getNamesAndTeamOnEffectGiannis();
+    getTenGames();
   }, []);
 
   const handleReset = () => {
@@ -106,10 +114,10 @@ export default function FetchData() {
           `https://www.balldontlie.io/api/v1/players?search=${query}`
         );
         const data = await response.json();
-        setStats(data.data);
+        // console.log(data);
+        setStats(data.data[0]);
         setId(data.data[0].id);
         const id = data.data[0].id;
-        const passableId = data.data[0].id;
 
         // getting the season averages for the player that was queried
         const playerId = await fetch(
@@ -182,8 +190,9 @@ export default function FetchData() {
         </h1>
       </div>
       <PlayerData stat={stats} loading={loading} />
+
       <div className="c">
-        <div className="c-1">
+        <div className="c-1 harden">
           <>
             <div className="playerMargin">
               <h5>
@@ -476,16 +485,15 @@ export default function FetchData() {
               <>
                 <div className="playerMargin">
                   <h5>
-                    {giannisTeam.first_name} {giannisTeam.last_name}
+                    {stats.first_name} {stats.last_name}
                   </h5>
                   <h6>
-                    Position: {giannisTeam.position} | Team:{" "}
-                    {giannisTeamName.abbreviation}
+                    Position: {stats.position} | Team: {stats.team.abbreviation}
                   </h6>
                 </div>
               </>
               <>
-                {giannis.map((item, index) => (
+                {playerStats.map((item, index) => (
                   <div className="c-1-1">
                     <div>
                       <h6>GP</h6>
@@ -583,29 +591,9 @@ export default function FetchData() {
       </div>
       <div className="e">
         <div className="e-1">
-          <div>A</div>
-          <div>B</div>
-          <div>C</div>
-          <div>D</div>
-          <div>E</div>
-          <div>F</div>
-          <div>G</div>
-          <div>H</div>
-          <div>I</div>
-          <div>J</div>
-          <div>K</div>
-          <div>L</div>
-          <div>M</div>
-          <div>N</div>
-          <div>O</div>
-          <div>P</div>
-          <div>Q</div>
-          <div>R</div>
-          <div>S</div>
-          <div>T</div>
+          <GameStats data={tenGames} />
         </div>
       </div>
-      {/* <GameStats id={id} /> */}
     </div>
   );
 }

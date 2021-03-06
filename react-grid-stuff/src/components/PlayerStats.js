@@ -5,6 +5,8 @@ export default function PlayerStats(props) {
 
   // console.log(props);
 
+  // need to go over data once, and not have all the divs like this.
+
   const { playerstats, loading } = props;
 
   console.log(playerstats, loading);
