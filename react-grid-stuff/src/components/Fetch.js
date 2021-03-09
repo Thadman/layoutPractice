@@ -83,11 +83,12 @@ export default function FetchData() {
   };
 
   const getTenGames = async () => {
+    // this is getting the last 10 games for steph, change to ${id}
     const response = await fetch(
       `https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=${115}&per_page=10`
     );
     const data = await response.json();
-    console.log(data.data);
+    // console.log(data.data);
     setTenGames(data.data);
   };
 
@@ -184,103 +185,101 @@ export default function FetchData() {
           </form>
         </div>
       </div>
-      <div className="title">
-        <h1 style={{ fontSize: "30px", marginTop: "35px" }}>
-          '20 - '21' SEASON AVERAGES
-        </h1>
-      </div>
-      <PlayerData stat={stats} loading={loading} />
+
+      <PlayerData stat={stats} loading={loading} harden={harden} />
 
       <div className="c">
-        <div className="c-1 harden">
-          <>
-            <div className="playerMargin">
-              <h5>
-                {hardenTeam.first_name} {hardenTeam.last_name}
-              </h5>
-              <h6 key={hardenTeam}>
-                Position: {hardenTeam.position} | Team:{" "}
-                {hardenTeamName.abbreviation}{" "}
-              </h6>
-            </div>
-          </>
+        <h1 style={{ fontSize: "30px", color: "#fff", textAlign: "center" }}>
+          '20 - '21' SEASON AVERAGES
+        </h1>
+        <div className="c-1">
+          <div className="playerMargin">
+            <h5>
+              {hardenTeam.first_name} {hardenTeam.last_name}
+            </h5>
+            <h6 key={hardenTeam}>
+              Position: {hardenTeam.position} | Team:{" "}
+              {hardenTeamName.abbreviation}{" "}
+            </h6>
+          </div>
+
           <>
             {harden.map((item, index) => (
               <div className="c-1-1">
                 <div>
-                  <h6>GP</h6>
+                  <h5>GP</h5>
                   <h6>{item.games_played}</h6>
                 </div>
                 <div>
-                  <h6>AST</h6>
+                  <h5>AST</h5>
                   <h6>{item.ast}</h6>
                 </div>
                 <div>
-                  <h6>BLK</h6>
+                  <h5>BLK</h5>
                   <h6>{item.blk}</h6>
                 </div>
                 <div>
-                  <h6>DREB</h6>
+                  <h5>DREB</h5>
                   <h6>{item.dreb}</h6>
                 </div>
                 <div>
-                  <h6>FGM3PT</h6>
+                  <h5>FGM3PT</h5>
                   <h6>{item.fg3_pct}</h6>
                 </div>
                 <div>
-                  <h6>FG3A</h6>
+                  <h5>FG3A</h5>
                   <h6>{item.fg3a}</h6>
                 </div>
                 <div>
-                  <h6>FG3M</h6>
+                  <h5>FG3M</h5>
                   <h6>{item.fg3m}</h6>
                 </div>
                 <div>
-                  <h6>FGA</h6>
+                  <h5>FGA</h5>
                   <h6>{item.fga}</h6>
                 </div>
                 <div>
-                  <h6>FGM</h6>
+                  <h5>FGM</h5>
                   <h6>{item.fgm}</h6>
                 </div>
                 <div>
-                  <h6>FTPCT</h6>
+                  <h5>FTPCT</h5>
                   <h6>{item.ft_pct}</h6>
                 </div>
                 <div>
-                  <h6>FTA</h6>
+                  <h5>FTA</h5>
                   <h6>{item.fta}</h6>
                 </div>
                 <div>
-                  <h6>FTM</h6>
+                  <h5>FTM</h5>
                   <h6>{item.ftm}</h6>
                 </div>
                 <div>
-                  <h6>MIN</h6>
+                  <h5>MIN</h5>
                   <h6>{item.min}</h6>
                 </div>
                 <div>
-                  <h6>OREB</h6>
+                  <h5>OREB</h5>
                   <h6>{item.oreb}</h6>
                 </div>
                 <div>
-                  <h6>PTS</h6>
+                  <h5>PTS</h5>
                   <h6>{item.pts}</h6>
                 </div>
                 <div>
-                  <h6>REB</h6>
+                  <h5>REB</h5>
                   <h6>{item.reb}</h6>
                 </div>
                 <div>
-                  <h6>STL</h6>
+                  <h5>STL</h5>
                   <h6>{item.stl}</h6>
                 </div>
                 <div>
-                  <h6>TO</h6>
+                  <h5>TO</h5>
                   <h6>{item.turnover}</h6>
                 </div>
                 <div>
-                  <h6>PF</h6>
+                  <h5>PF</h5>
                   <h6>{item.pf}</h6>
                 </div>
               </div>
@@ -580,14 +579,24 @@ export default function FetchData() {
       </div>
 
       <div className="d-1">
-        <div className="d-1-1">Last 10 games</div>
-        <div className="d-1-2">
-          <select>
-            <option value="James Harden">James Harden</option>
-            <option value="Giannis">Steph</option>
-            <option value="Steph">Giannis</option>
-          </select>
-        </div>
+        <>
+          <div className="d-1-2">
+            <h1
+              style={{ fontSize: "30px", color: "#fff", textAlign: "center" }}
+            >
+              LAST TEN GAMES
+            </h1>
+          </div>
+          <div className="d-1-2">
+            <select>
+              <option value="James Harden">James Harden</option>
+              <option selected value="Steph">
+                Steph
+              </option>
+              <option value="Giannis">Giannis</option>
+            </select>
+          </div>
+        </>
       </div>
       <div className="e">
         <div className="e-1">
