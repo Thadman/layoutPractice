@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export default function PlayerData(props) {
+  console.log(props);
   return (
     <div className="b">
       <div className="b-1">
@@ -21,7 +22,7 @@ export default function PlayerData(props) {
       {props.loading && (
         <>
           <div className="b-1-1">
-            <button>
+            <button onClick={props.reset}>
               {props.stat.first_name} {props.stat.last_name}
             </button>
           </div>

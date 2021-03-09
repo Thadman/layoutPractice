@@ -102,6 +102,16 @@ export default function FetchData() {
     getTenGames();
   }, []);
 
+  // resetting the data
+
+  const handlePlayerReset = (event) => {
+    event.preventDefault();
+    setStats([]);
+    setPlayerStats([]);
+    setLoading(false);
+    console.log("hello");
+  };
+
   const handleReset = () => {
     setQuery("");
   };
@@ -186,7 +196,12 @@ export default function FetchData() {
         </div>
       </div>
 
-      <PlayerData stat={stats} loading={loading} harden={harden} />
+      <PlayerData
+        stat={stats}
+        loading={loading}
+        harden={harden}
+        reset={handlePlayerReset}
+      />
 
       <div className="c">
         <h1 style={{ fontSize: "30px", color: "#fff", textAlign: "center" }}>
