@@ -106,8 +106,6 @@ export default function FetchData() {
 
   const handlePlayerReset = (event) => {
     event.preventDefault();
-    setStats([]);
-    setPlayerStats([]);
     setLoading(false);
     console.log("hello");
   };
