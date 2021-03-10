@@ -86,16 +86,9 @@ html {
 }
 
 [class*="c-"] {
-  flex: 0 0 30%;
+  flex: 0 0 24%;
   color: #fff;
   /* border: 1px solid #616161; */
-}
-
-.c-1 {
-  display: flex;
-  flex-flow: row-wrap;
-  flex: 0 1 auto;
-  flex-direction: column;
 }
 
 .c-1-1 {
@@ -157,7 +150,7 @@ html {
 
 .e {
   grid-column: 1/6;
-  grid-row: 9/15;
+  grid-row: 9/14;
   /* border: 1px solid #616161; */
   display: flex;
   justify-content: center;
@@ -197,7 +190,7 @@ html {
 th,
 td {
   text-align: left;
-  padding: 5px;
+  padding: 7px;
 }
 
 table {
