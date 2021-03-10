@@ -180,7 +180,7 @@ export default function FetchData() {
   };
 
   return (
-    <div className="wrapper">
+    <div className="wrapper font-mono">
       <div className="a">
         <div className="a-1">
           <form onSubmit={handleSubmit}>

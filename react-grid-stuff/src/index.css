@@ -157,11 +157,12 @@ html {
 
 .e {
   grid-column: 1/6;
-  grid-row: 10/15;
+  grid-row: 9/15;
   /* border: 1px solid #616161; */
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .e-1 {
@@ -169,8 +170,9 @@ html {
   margin: 0 auto;
   color: #fff;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
+
 .top-table {
   width: 90%;
   display: flex;
@@ -190,6 +192,17 @@ html {
 .table :hover {
   background-color: #616161;
   cursor: pointer;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 5px;
+}
+
+table {
+  table-layout: auto;
+  width: 90%;
 }
 
 input {

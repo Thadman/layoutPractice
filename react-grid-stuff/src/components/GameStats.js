@@ -4,58 +4,53 @@ const GameStats = (props) => {
   console.log(props);
   return (
     <>
-      <div className="top-table" style={{ width: "90%" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            borderBottom: "1px solid #616161",
-            paddingBottom: "10px",
-            color: "#616161",
-            fontSize: "12px",
-          }}
-        >
-          <div>MIN</div>
-          <div>PTS</div>
-          <div>AST</div>
-          <div>FGM</div>
-          <div>FGPCT</div>
-          <div>FG3M</div>
-          <div>FG3A</div>
-          <div>FG3PCT</div>
-          <div>FTM</div>
-          <div>FTA</div>
-          <div>FTPCT</div>
-          <div>OREB</div>
-          <div>BLK</div>
-          <div>DREB</div>
-          <div>STL</div>
-          <div>TO</div>
-          <div>PF</div>
-        </div>
+      <table>
+        <thead>
+          <tr>
+            <th>MIN</th>
+            <th>PTS</th>
+            <th>AST</th>
+            <th>FGM</th>
+            <th>FGPCT</th>
+            <th>FG3M</th>
+            <th>FG3A</th>
+            <th>FG3PCT</th>
+            <th>FTM</th>
+            <th>FTA</th>
+            <th>FTPCT</th>
+            <th>OREB</th>
+            <th>BLK</th>
+            <th>DREB</th>
+            <th>STL</th>
+            <th>TO</th>
+            <th>PF</th>
+          </tr>
+        </thead>
         {props.data.map((item, index) => (
           // this is the data dump for the 10 games, can put this in the table! this is the first 10 games of the season, how to get last 10 games modularly?
-          <div className="table">
-            <div>{item.min}</div>
-            <div>{item.pts}</div>
-            <div>{item.ast}</div>
-            <div>{item.fgm}</div>
-            <div>{item.fg_pct}</div>
-            <div>{item.fg3m}</div>
-            <div>{item.fg3a}</div>
-            <div>{item.fg3_pct}</div>
-            <div>{item.ftm}</div>
-            <div>{item.fta}</div>
-            <div>{item.ft_pct}</div>
-            <div>{item.oreb}</div>
-            <div>{item.blk}</div>
-            <div>{item.dreb}</div>
-            <div>{item.stl}</div>
-            <div>{item.turnover}</div>
-            <div>{item.pf}</div>
-          </div>
+          <tbody>
+            <tr>
+              <td>{item.min}</td>
+              <td>{item.pts}</td>
+              <td>{item.ast}</td>
+              <td>{item.fgm}</td>
+              <td>{item.fg_pct}</td>
+              <td>{item.fg3m}</td>
+              <td>{item.fg3a}</td>
+              <td>{item.fg3_pct}</td>
+              <td>{item.ftm}</td>
+              <td>{item.fta}</td>
+              <td>{item.ft_pct}</td>
+              <td>{item.oreb}</td>
+              <td>{item.blk}</td>
+              <td>{item.dreb}</td>
+              <td>{item.stl}</td>
+              <td>{item.turnover}</td>
+              <td>{item.pf}</td>
+            </tr>
+          </tbody>
         ))}
-      </div>
+      </table>
     </>
   );
 };
