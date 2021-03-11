@@ -191,7 +191,7 @@ html {
   font-size: 12px;
 }
 
-.table :hover {
+tr:hover {
   background-color: #616161;
   cursor: pointer;
 }
