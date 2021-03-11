@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function PlayerData(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="b">
       <div className="b-1">

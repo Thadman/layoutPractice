@@ -2,6 +2,7 @@ import React from "react";
 
 const GameStats = (props) => {
   console.log(props);
+
   return (
     <>
       <table>

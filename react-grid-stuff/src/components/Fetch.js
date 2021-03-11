@@ -24,6 +24,7 @@ export default function FetchData() {
   const [stephTeamName, setStephTeamName] = useState([]);
   const [giannisTeamName, setGiannisTeamName] = useState([]);
   const [tenGames, setTenGames] = useState([]);
+  const [value, setValue] = useState("Steph Curry");
 
   // this is the data for the players season averages
   const getHarden = async () => {
@@ -103,17 +104,23 @@ export default function FetchData() {
   }, []);
 
   // resetting the data
-
   const handlePlayerReset = (event) => {
     event.preventDefault();
     setLoading(false);
     console.log("hello");
   };
 
+  // resetting the query
   const handleReset = () => {
     setQuery("");
   };
 
+  // for the select tag
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  // handling the request when the query is submitted
   const handleSubmit = (event) => {
     event.preventDefault();
     const getData = async () => {
@@ -315,79 +322,79 @@ export default function FetchData() {
             {steph.map((item, index) => (
               <div className="c-1-1">
                 <div>
-                  <h6>GP</h6>
+                  <h5>GP</h5>
                   <h6>{item.games_played}</h6>
                 </div>
                 <div>
-                  <h6>AST</h6>
+                  <h5>AST</h5>
                   <h6>{item.ast}</h6>
                 </div>
                 <div>
-                  <h6>BLK</h6>
+                  <h5>BLK</h5>
                   <h6>{item.blk}</h6>
                 </div>
                 <div>
-                  <h6>DREB</h6>
+                  <h5>DREB</h5>
                   <h6>{item.dreb}</h6>
                 </div>
                 <div>
-                  <h6>FGM3PT</h6>
+                  <h5>FGM3PT</h5>
                   <h6>{item.fg3_pct}</h6>
                 </div>
                 <div>
-                  <h6>FG3A</h6>
+                  <h5>FG3A</h5>
                   <h6>{item.fg3a}</h6>
                 </div>
                 <div>
-                  <h6>FG3M</h6>
+                  <h5>FG3M</h5>
                   <h6>{item.fg3m}</h6>
                 </div>
                 <div>
-                  <h6>FGA</h6>
+                  <h5>FGA</h5>
                   <h6>{item.fga}</h6>
                 </div>
                 <div>
-                  <h6>FGM</h6>
+                  <h5>FGM</h5>
                   <h6>{item.fgm}</h6>
                 </div>
                 <div>
-                  <h6>FTPCT</h6>
+                  <h5>FTPCT</h5>
                   <h6>{item.ft_pct}</h6>
                 </div>
                 <div>
-                  <h6>FTA</h6>
+                  <h5>FTA</h5>
                   <h6>{item.fta}</h6>
                 </div>
                 <div>
-                  <h6>FTM</h6>
+                  <h5>FTM</h5>
                   <h6>{item.ftm}</h6>
                 </div>
                 <div>
-                  <h6>MIN</h6>
+                  <h5>MIN</h5>
                   <h6>{item.min}</h6>
                 </div>
                 <div>
-                  <h6>OREB</h6>
+                  <h5>OREB</h5>
                   <h6>{item.oreb}</h6>
                 </div>
                 <div>
-                  <h6>PTS</h6>
+                  <h5>PTS</h5>
                   <h6>{item.pts}</h6>
                 </div>
                 <div>
-                  <h6>REB</h6>
+                  <h5>REB</h5>
                   <h6>{item.reb}</h6>
                 </div>
                 <div>
-                  <h6>STL</h6>
+                  <h5>STL</h5>
                   <h6>{item.stl}</h6>
                 </div>
                 <div>
-                  <h6>TO</h6>
+                  <h5>TO</h5>
                   <h6>{item.turnover}</h6>
                 </div>
                 <div>
-                  <h6>PF</h6>
+                  <h5>PF</h5>
                   <h6>{item.pf}</h6>
                 </div>
               </div>
@@ -410,79 +417,79 @@ export default function FetchData() {
             {giannis.map((item, index) => (
               <div className="c-1-1">
                 <div>
-                  <h6>GP</h6>
+                  <h5>GP</h5>
                   <h6>{item.games_played}</h6>
                 </div>
                 <div>
-                  <h6>AST</h6>
+                  <h5>AST</h5>
                   <h6>{item.ast}</h6>
                 </div>
                 <div>
-                  <h6>BLK</h6>
+                  <h5>BLK</h5>
                   <h6>{item.blk}</h6>
                 </div>
                 <div>
-                  <h6>DREB</h6>
+                  <h5>DREB</h5>
                   <h6>{item.dreb}</h6>
                 </div>
                 <div>
-                  <h6>FGM3PT</h6>
+                  <h5>FGM3PT</h5>
                   <h6>{item.fg3_pct}</h6>
                 </div>
                 <div>
-                  <h6>FG3A</h6>
+                  <h5>FG3A</h5>
                   <h6>{item.fg3a}</h6>
                 </div>
                 <div>
-                  <h6>FG3M</h6>
+                  <h5>FG3M</h5>
                   <h6>{item.fg3m}</h6>
                 </div>
                 <div>
-                  <h6>FGA</h6>
+                  <h5>FGA</h5>
                   <h6>{item.fga}</h6>
                 </div>
                 <div>
-                  <h6>FGM</h6>
+                  <h5>FGM</h5>
                   <h6>{item.fgm}</h6>
                 </div>
                 <div>
-                  <h6>FTPCT</h6>
+                  <h5>FTPCT</h5>
                   <h6>{item.ft_pct}</h6>
                 </div>
                 <div>
-                  <h6>FTA</h6>
+                  <h5>FTA</h5>
                   <h6>{item.fta}</h6>
                 </div>
                 <div>
-                  <h6>FTM</h6>
+                  <h5>FTM</h5>
                   <h6>{item.ftm}</h6>
                 </div>
                 <div>
-                  <h6>MIN</h6>
+                  <h5>MIN</h5>
                   <h6>{item.min}</h6>
                 </div>
                 <div>
-                  <h6>OREB</h6>
+                  <h5>OREB</h5>
                   <h6>{item.oreb}</h6>
                 </div>
                 <div>
-                  <h6>PTS</h6>
+                  <h5>PTS</h5>
                   <h6>{item.pts}</h6>
                 </div>
                 <div>
-                  <h6>REB</h6>
+                  <h5>REB</h5>
                   <h6>{item.reb}</h6>
                 </div>
                 <div>
-                  <h6>STL</h6>
+                  <h5>STL</h5>
                   <h6>{item.stl}</h6>
                 </div>
                 <div>
-                  <h6>TO</h6>
+                  <h5>TO</h5>
                   <h6>{item.turnover}</h6>
                 </div>
                 <div>
-                  <h6>PF</h6>
+                  <h5>PF</h5>
                   <h6>{item.pf}</h6>
                 </div>
               </div>
@@ -508,79 +515,79 @@ export default function FetchData() {
                 {playerStats.map((item, index) => (
                   <div className="c-1-1">
                     <div>
-                      <h6>GP</h6>
+                      <h5>GP</h5>
                       <h6>{item.games_played}</h6>
                     </div>
                     <div>
-                      <h6>AST</h6>
+                      <h5>AST</h5>
                       <h6>{item.ast}</h6>
                     </div>
                     <div>
-                      <h6>BLK</h6>
+                      <h5>BLK</h5>
                       <h6>{item.blk}</h6>
                     </div>
                     <div>
-                      <h6>DREB</h6>
+                      <h5>DREB</h5>
                       <h6>{item.dreb}</h6>
                     </div>
                     <div>
-                      <h6>FGM3PT</h6>
+                      <h5>FGM3PT</h5>
                       <h6>{item.fg3_pct}</h6>
                     </div>
                     <div>
-                      <h6>FG3A</h6>
+                      <h5>FG3A</h5>
                       <h6>{item.fg3a}</h6>
                     </div>
                     <div>
-                      <h6>FG3M</h6>
+                      <h5>FG3M</h5>
                       <h6>{item.fg3m}</h6>
                     </div>
                     <div>
-                      <h6>FGA</h6>
+                      <h5>FGA</h5>
                       <h6>{item.fga}</h6>
                     </div>
                     <div>
-                      <h6>FGM</h6>
+                      <h5>FGM</h5>
                       <h6>{item.fgm}</h6>
                     </div>
                     <div>
-                      <h6>FTPCT</h6>
+                      <h5>FTPCT</h5>
                       <h6>{item.ft_pct}</h6>
                     </div>
                     <div>
-                      <h6>FTA</h6>
+                      <h5>FTA</h5>
                       <h6>{item.fta}</h6>
                     </div>
                     <div>
-                      <h6>FTM</h6>
+                      <h5>FTM</h5>
                       <h6>{item.ftm}</h6>
                     </div>
                     <div>
-                      <h6>MIN</h6>
+                      <h5>MIN</h5>
                       <h6>{item.min}</h6>
                     </div>
                     <div>
-                      <h6>OREB</h6>
+                      <h5>OREB</h5>
                       <h6>{item.oreb}</h6>
                     </div>
                     <div>
-                      <h6>PTS</h6>
+                      <h5>PTS</h5>
                       <h6>{item.pts}</h6>
                     </div>
                     <div>
-                      <h6>REB</h6>
+                      <h5>REB</h5>
                       <h6>{item.reb}</h6>
                     </div>
                     <div>
-                      <h6>STL</h6>
+                      <h5>STL</h5>
                       <h6>{item.stl}</h6>
                     </div>
                     <div>
-                      <h6>TO</h6>
+                      <h5>TO</h5>
                       <h6>{item.turnover}</h6>
                     </div>
                     <div>
-                      <h6>PF</h6>
+                      <h5>PF</h5>
                       <h6>{item.pf}</h6>
                     </div>
                   </div>
@@ -601,19 +608,17 @@ export default function FetchData() {
             </h1>
           </div>
           <div className="d-1-2">
-            <select>
+            <select value={value} onChange={handleChange}>
               <option value="James Harden">James Harden</option>
-              <option selected value="Steph">
-                Steph
-              </option>
-              <option value="Giannis">Giannis</option>
+              <option value="Steph Curry">Steph Curry</option>
+              <option value="Giannis">Giannis Anteto..</option>
             </select>
           </div>
         </>
       </div>
       <div className="e">
         <div className="e-1">
-          <GameStats data={tenGames} />
+          <GameStats data={tenGames} value={value} />
         </div>
       </div>
     </div>
