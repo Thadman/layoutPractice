@@ -188,25 +188,27 @@ export default function FetchData() {
 
   return (
     <div className="wrapper font-mono">
-      <div className="a">
-        <div className="a-1">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search Here..."
-            />
-          </form>
+      <div className="header-wrapper ">
+        <div className="a">
+          <div className="a-1">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search Here..."
+              />
+            </form>
+          </div>
         </div>
-      </div>
 
-      <PlayerData
-        stat={stats}
-        loading={loading}
-        harden={harden}
-        reset={handlePlayerReset}
-      />
+        <PlayerData
+          stat={stats}
+          loading={loading}
+          harden={harden}
+          reset={handlePlayerReset}
+        />
+      </div>
 
       <div className="c">
         <h1 style={{ fontSize: "30px", color: "#fff", textAlign: "center" }}>
