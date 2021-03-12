@@ -1,7 +1,16 @@
 import React from "react";
 
 const GameStats = (props) => {
-  console.log(props);
+  // console.log(props);
+
+  // const getStats = async () => {
+  //   const response = await fetch(
+  //     `https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=${props.id}&per_page=10`
+  //   );
+  //   const data = await response.json();
+  //   getStats();
+  //   console.log(data);
+  // };
 
   return (
     <>

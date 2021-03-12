@@ -107,7 +107,6 @@ export default function FetchData() {
   const handlePlayerReset = (event) => {
     event.preventDefault();
     setLoading(false);
-    console.log("hello");
   };
 
   // resetting the query
@@ -134,6 +133,7 @@ export default function FetchData() {
         setStats(data.data[0]);
         setId(data.data[0].id);
         const id = data.data[0].id;
+        console.log(id);
 
         // getting the season averages for the player that was queried
         const playerId = await fetch(
@@ -175,7 +175,6 @@ export default function FetchData() {
         setPlayerPic(playerPicShow.url);
         // console.log(playerPic);
         setLoading(true);
-        return id;
       } catch (error) {
         console.log(error);
       }
@@ -614,13 +613,14 @@ export default function FetchData() {
               <option value="James Harden">James Harden</option>
               <option value="Steph Curry">Steph Curry</option>
               <option value="Giannis">Giannis Anteto..</option>
+              {loading && <option value={query}>{query}</option>}
             </select>
           </div>
         </>
       </div>
       <div className="e">
         <div className="e-1">
-          <GameStats data={tenGames} value={value} />
+          <GameStats data={tenGames} value={value} id={id} />
         </div>
       </div>
     </div>
